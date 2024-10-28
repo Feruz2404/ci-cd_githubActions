@@ -12,11 +12,11 @@ jobs:
               run: npm run lint
 
     test:
+        needs: lint
         runs-on: ubuntu-latest
         strategy:
             matrix:
                 node-version: [18, 20, 22]
-        needs: lint
         steps:
             - name: checkout
               uses: actions/checkout@v4
